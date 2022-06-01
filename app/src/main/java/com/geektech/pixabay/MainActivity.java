@@ -48,10 +48,9 @@ public class MainActivity extends AppCompatActivity {
         binding.swipeRefreshLayout.setOnRefreshListener(new SwipeRefreshLayout.OnRefreshListener() {
             @Override
             public void onRefresh() {
+                int count = 1;
                 String word = binding.etWord.getText().toString();
-                for (int i = 1; i < 10; i++) {
-                    getImageFromApi(word, i, 10);
-                }
+                getImageFromApi(word, ++count, 10);
                 adapter.notifyDataSetChanged();
                 binding.swipeRefreshLayout.setRefreshing(false);
             }
